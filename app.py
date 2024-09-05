@@ -62,22 +62,19 @@ def generate_quote():
     temp_docx = 'temp_quote.docx'
     doc.save(temp_docx)
 
-    # Convert the DOCX file to PDF
-    temp_pdf = 'temp_quote.pdf'
-    pythoncom.CoInitialize()
-    convert(temp_docx, temp_pdf)
+    
 
     # Read the PDF file into a BytesIO object
     buffer = io.BytesIO()
-    with open(temp_pdf, 'rb') as f:
+    with open(temp_docx, 'rb') as f:
         buffer.write(f.read())
     buffer.seek(0)
 
     # Clean up temporary files
     os.remove(temp_docx)
-    os.remove(temp_pdf)
 
-    return send_file(buffer, as_attachment=True, download_name='quote.pdf', mimetype='application/pdf')
+
+    return send_file(buffer, as_attachment=True, download_name='quote.docx', mimetype='application/docx')
 
 
 if __name__ == "__main__":
