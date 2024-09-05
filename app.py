@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request, send_file
 from docx import Document
-from docx2pdf import convert
 import io
 import os
-import pythoncom
+
 app = Flask(__name__)
 
 @app.route("/")
