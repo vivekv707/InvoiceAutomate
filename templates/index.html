@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Generator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .form-group label {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .form-control {
+            font-size: 1.1em;
+            padding: 10px;
+        }
+        .btn-primary {
+            width: 100%;
+            font-size: 1.2em;
+            padding: 10px;
+        }
+        @media (max-width: 576px) {
+            .container {
+                padding: 15px;
+            }
+            .form-group label {
+                font-size: 1.4em;
+            }
+            .form-control {
+                font-size: 1.3em;
+                padding: 15px;
+            }
+            .btn-primary {
+                font-size: 1.4em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Generate Quotation</h2>
+        <form action="/generate_quote" method="post">
+            <div class="form-group">
+                <label for="template">Choose Template:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="aum" name="template" value="AUM" required>
+                    <label class="form-check-label" for="aum">AUM</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="international" name="template" value="International" required>
+                    <label class="form-check-label" for="international">International</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="address1">Address Line 1:</label>
+                <input type="text" class="form-control" id="address1" name="address1">
+            </div>
+            <div class="form-group">
+                <label for="address2">Address Line 2:</label>
+                <input type="text" class="form-control" id="address2" name="address2">
+            </div>
+            <div class="form-group">
+                <label for="source">Source:</label>
+                <input type="text" class="form-control" id="source" name="source" required>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" class="form-control" id="destination" name="destination" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" class="form-control" id="amount" name="amount" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="notes">Charges Include:</label>
+                <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Generate Quotation</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
